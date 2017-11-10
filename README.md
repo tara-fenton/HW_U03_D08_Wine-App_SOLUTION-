@@ -28,6 +28,8 @@ Build a Wine Management app!  Your app should have:
     - **A Wine View:** Whenever the user clicks on a specific wine the viewing window should re-render showing only information for that specific wine. 
     - **A Wine Form View:** When the user clicks on `Create Wine` the view should render a form to create a wine. When the form is submitted, send a `post` request to your API to add it to your database. When you receive a response, add it to the list of wines stored in state and render the _Wine View_ for the new wine.
 
+### Your app should [follow the wireframes!](./wireframes.md)
+
 ### Bonus - Delete Wine
 
 On the _Wine View_ add a button to delete the wine. 
