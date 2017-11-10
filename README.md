@@ -1,10 +1,10 @@
-# HOMEWORK: [name of homework]
+# HOMEWORK: WINE TIME
 
 ![Time for wine!](https://i.giphy.com/536KIvytx4AO4.gif)
 
 
 # React Wines
-Tonight we're going to build a simple React app using around newly acquired Axios skills. For our data, we'll be using the wine api from [the handy API generator](http://myapi-profstream.herokuapp.com/).
+Tonight we're going to build a simple React app. For our data, we'll be using the wine api from [the handy API generator](http://myapi-profstream.herokuapp.com/).
 
 ## Set Up
 
@@ -41,12 +41,13 @@ In the _Wine View_ add a button that will render the _Wine Form_ with the values
 
 ## 🚀 Completion looks like:
 
-[all the steps they have to follow]
+- You have a React app in this directory
+- You have a **good commit history**!! A good commit history is required for this homework.
 
 ## 🚀 Your homework submission should include:
 
 - A pull request created on _this repo_.
-- [any additional steps]
+- A **good commit history**
 - Completion, comfort, wins, losses, questions... you know the drill.
 
-## This homework is due 🚨 11PM ON [night] 🚨
+## This homework is due 🚨 11PM ON SUNDAY NIGHT 🚨
