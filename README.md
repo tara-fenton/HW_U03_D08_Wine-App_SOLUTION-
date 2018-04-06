@@ -5,7 +5,7 @@
 
 # React Wines
 Tonight we're going to build a simple React app.
- **Before you begin!** Read the React [Router Docs]() 
+ **Before you begin!** Read the React [Router Docs](https://reacttraining.com/react-router/web/guides/quick-start) 
 
 ## Set Up
 
