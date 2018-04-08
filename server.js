@@ -38,6 +38,13 @@ app.delete("/api/wine/:slug", (request, response) => {
   });
 });
 
+app.put("/api/wine/:slug", jsonParser, (request, response) => {
+  const wineUpdates = request.body;
+  Wine.update(wineUpdates).then(wine => {
+    response.json({ message: "ok" });
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });

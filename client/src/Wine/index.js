@@ -34,7 +34,6 @@ class Wine extends Component {
       year,
       description,
       country,
-      region,
       pictureUrl
     } = this.props;
     const { deleted } = this.state;
@@ -51,11 +50,9 @@ class Wine extends Component {
             {name} ({year}) - ${price}
           </h2>
           <p>{description}</p>
+          <p>{country}</p>
           <p>
-            {country}, {region}
-          </p>
-          <p>
-            <Link to={"/wine/${slug}/edit"}>Edit</Link>
+            <Link to={`/wine/${slug}/edit`}>Edit</Link>
           </p>
           <form onSubmit={this.deleteFormSubmit}>
             <button>Delete</button>

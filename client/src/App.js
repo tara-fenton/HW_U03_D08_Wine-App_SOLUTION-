@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AllWinesList from "./AllWinesList";
 import SingleWinePage from "./SingleWinePage";
 import NewWinePage from "./NewWinePage";
+import EditWinePage from "./EditWinePage";
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
             </div>
             <div className="main">
               <Route
+                exact
                 path="/wine/:slug"
                 render={props => {
                   if (props.match.params.slug === "new") {
@@ -34,6 +36,7 @@ class App extends Component {
                 }}
               />
               <Route path="/wine/new" component={NewWinePage} />
+              <Route path="/wine/:slug/edit" component={EditWinePage} />
             </div>
           </div>
         </div>

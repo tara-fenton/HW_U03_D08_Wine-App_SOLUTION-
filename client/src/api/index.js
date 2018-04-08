@@ -27,4 +27,21 @@ const deleteWineBySlug = slug => {
   }).then(response => response.json());
 };
 
-export { fetchAllWines, fetchWineBySlug, createWine, deleteWineBySlug };
+const updateWine = wineUpdates => {
+  const body = wineUpdates;
+  return fetch(`http://localhost:4567/api/wine/${wineUpdates.slug}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body)
+  }).then(response => response.json());
+};
+
+export {
+  fetchAllWines,
+  fetchWineBySlug,
+  createWine,
+  deleteWineBySlug,
+  updateWine
+};

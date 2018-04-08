@@ -5,14 +5,15 @@ import {
   Link,
   Redirect
 } from "react-router-dom";
-import { createWine } from "../api";
+import { fetchWineBySlug, updateWine } from "../api";
 import Wine from "../Wine";
 
-class NewWinePage extends Component {
+class EditWinePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newWineData: {
+      editedWineData: {
+        id: 0,
         name: "",
         slug: "",
         year: "",
@@ -23,24 +24,32 @@ class NewWinePage extends Component {
       },
       created: false
     };
-    this.onInputChange = this.onInputChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
-  onInputChange(fieldName, value) {
-    this.setState((prevState, props) => {
-      const newWineData = Object.assign({}, prevState.newWineData);
-      newWineData[fieldName] = value;
-      return {
-        newWineData: newWineData
-      };
+
+  componentDidMount() {
+    const { slug } = this.props.match.params;
+    fetchWineBySlug(slug).then(wine => {
+      this.setState({
+        editedWineData: wine
+      });
     });
   }
 
+  onInputChange(fieldName, value) {
+    this.setState((prevState, props) => {
+      const editedWineData = Object.assign({}, prevState.editedWineData);
+      editedWineData[fieldName] = value;
+      return {
+        editedWineData: editedWineData
+      };
+    });
+  }
   onSubmit(evt) {
     evt.preventDefault();
-    createWine(this.state.newWineData).then(() => {
+    updateWine(this.state.editedWineData).then(() => {
       this.setState({
-        created: true
+        updated: true
       });
     });
   }
@@ -54,7 +63,7 @@ class NewWinePage extends Component {
       description,
       country,
       picture_url
-    } = this.state.newWineData;
+    } = this.state.editedWineData;
 
     const { created } = this.state;
     if (created) {
@@ -144,4 +153,4 @@ class NewWinePage extends Component {
   }
 }
 
-export default NewWinePage;
+export default EditWinePage;

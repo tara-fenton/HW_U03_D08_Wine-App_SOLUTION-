@@ -39,7 +39,6 @@ class AllWinesList extends Component {
       year,
       description,
       country,
-      region,
       picture_url
     } = this.state.wine;
     if (!name) {
@@ -53,7 +52,6 @@ class AllWinesList extends Component {
         year={year}
         description={description}
         country={country}
-        region={region}
         pictureUrl={picture_url}
       />
     );

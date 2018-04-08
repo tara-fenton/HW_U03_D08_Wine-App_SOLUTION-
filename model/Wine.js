@@ -38,4 +38,23 @@ Wine.create = wine => {
 Wine.deleteBySlug = slug => {
   return db.result("DELETE FROM wine WHERE slug = $1", [slug]);
 };
+
+Wine.update = wine => {
+  return db.none(
+    `
+    UPDATE wine SET name = $1, slug = $2, year = $3, country = $4,
+    description = $5, price = $6, picture_url = $7 WHERE id = $8
+    `,
+    [
+      wine.name,
+      wine.slug,
+      wine.year,
+      wine.country,
+      wine.description,
+      wine.price,
+      wine.picture_url,
+      wine.id
+    ]
+  );
+};
 module.exports = Wine;
