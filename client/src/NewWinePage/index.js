@@ -39,6 +39,7 @@ class NewWinePage extends Component {
   onSubmit(evt) {
     evt.preventDefault();
     createWine(this.state.newWineData).then(() => {
+      this.props.updateStateWithAllWines();
       this.setState({
         created: true
       });

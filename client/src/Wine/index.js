@@ -20,6 +20,7 @@ class Wine extends Component {
   deleteFormSubmit(evt) {
     evt.preventDefault();
     deleteWineBySlug(this.props.slug).then(() => {
+      this.props.updateStateWithAllWines();
       this.setState({
         deleted: true
       });

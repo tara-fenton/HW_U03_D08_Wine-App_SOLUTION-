@@ -22,7 +22,7 @@ class EditWinePage extends Component {
         country: "",
         picture_url: ""
       },
-      created: false
+      edited: false
     };
     this.onSubmit = this.onSubmit.bind(this);
   }
@@ -48,8 +48,9 @@ class EditWinePage extends Component {
   onSubmit(evt) {
     evt.preventDefault();
     updateWine(this.state.editedWineData).then(() => {
+      this.props.updateStateWithAllWines();
       this.setState({
-        updated: true
+        edited: true
       });
     });
   }
@@ -65,8 +66,8 @@ class EditWinePage extends Component {
       picture_url
     } = this.state.editedWineData;
 
-    const { created } = this.state;
-    if (created) {
+    const { edited } = this.state;
+    if (edited) {
       return <Redirect to="/" />;
     }
     return (

@@ -5,9 +5,35 @@ import AllWinesList from "./AllWinesList";
 import SingleWinePage from "./SingleWinePage";
 import NewWinePage from "./NewWinePage";
 import EditWinePage from "./EditWinePage";
+import { fetchAllWines } from "./api";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      winesBySlug: {}
+    };
+    this.updateStateWithAllWines = this.updateStateWithAllWines.bind(this);
+  }
+
+  componentDidMount() {
+    this.updateStateWithAllWines();
+  }
+
+  updateStateWithAllWines() {
+    fetchAllWines().then(wines => {
+      const winesBySlug = {};
+      wines.forEach(wine => {
+        winesBySlug[wine.slug] = wine;
+      });
+      this.setState({
+        winesBySlug: winesBySlug
+      });
+    });
+  }
+
   render() {
+    const { winesBySlug } = this.state;
     return (
       <Router>
         <div className="App">
@@ -15,7 +41,7 @@ class App extends Component {
           <div className="sidebar-main-container">
             <div className="sidebar">
               <h2>All Wines</h2>
-              <AllWinesList />
+              <AllWinesList winesBySlug={winesBySlug} />
               <Link to="/wine/new">Add new wine</Link>
             </div>
             <div className="main">
@@ -31,12 +57,25 @@ class App extends Component {
                       match={props.match}
                       history={props.history}
                       location={props.location}
+                      updateStateWithAllWines={this.updateStateWithAllWines}
                     />
                   );
                 }}
               />
               <Route path="/wine/new" component={NewWinePage} />
-              <Route path="/wine/:slug/edit" component={EditWinePage} />
+              <Route
+                path="/wine/:slug/edit"
+                render={props => {
+                  return (
+                    <EditWinePage
+                      match={props.match}
+                      history={props.history}
+                      location={props.location}
+                      updateStateWithAllWines={this.updateStateWithAllWines}
+                    />
+                  );
+                }}
+              />
             </div>
           </div>
         </div>

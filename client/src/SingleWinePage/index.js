@@ -53,6 +53,7 @@ class AllWinesList extends Component {
         description={description}
         country={country}
         pictureUrl={picture_url}
+        updateStateWithAllWines={this.props.updateStateWithAllWines}
       />
     );
   }
