@@ -12,6 +12,13 @@ app.get("/api/wine", (request, response) => {
   });
 });
 
+app.get("/api/wine/:slug", (request, response) => {
+  const { slug } = request.params;
+  Wine.getBySlug(slug).then(wine => {
+    response.json(wine);
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });

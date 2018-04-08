@@ -1,0 +1,21 @@
+.Wine {
+  display: flex;
+}
+
+.Wine h2 {
+  margin-bottom: 0.5rem;
+
+  font-size: 2rem;
+}
+
+.Wine .image-wrapper {
+  width: 25%;
+}
+
+.Wine .image-wrapper img {
+  width: 100%;
+}
+
+.Wine .content-wrapper {
+  width: 75%;
+}
