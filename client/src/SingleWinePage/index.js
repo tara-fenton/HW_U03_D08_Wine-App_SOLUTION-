@@ -34,6 +34,8 @@ class AllWinesList extends Component {
   render() {
     const {
       name,
+      slug,
+      price,
       year,
       description,
       country,
@@ -46,6 +48,8 @@ class AllWinesList extends Component {
     return (
       <Wine
         name={name}
+        slug={slug}
+        price={price}
         year={year}
         description={description}
         country={country}

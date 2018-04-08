@@ -21,4 +21,10 @@ const createWine = wine => {
   }).then(response => response.json());
 };
 
-export { fetchAllWines, fetchWineBySlug, createWine };
+const deleteWineBySlug = slug => {
+  return fetch(`http://localhost:4567/api/wine/${slug}`, {
+    method: "DELETE"
+  }).then(response => response.json());
+};
+
+export { fetchAllWines, fetchWineBySlug, createWine, deleteWineBySlug };

@@ -31,6 +31,13 @@ app.post("/api/wine", jsonParser, (request, response) => {
   });
 });
 
+app.delete("/api/wine/:slug", (request, response) => {
+  const { slug } = request.params;
+  Wine.deleteBySlug(slug).then(wine => {
+    response.json({ message: "ok" });
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
 });

@@ -35,4 +35,7 @@ Wine.create = wine => {
   );
 };
 
+Wine.deleteBySlug = slug => {
+  return db.result("DELETE FROM wine WHERE slug = $1", [slug]);
+};
 module.exports = Wine;
