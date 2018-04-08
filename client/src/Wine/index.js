@@ -4,7 +4,16 @@ import { fetchWineBySlug } from "../api";
 import "./style.css";
 
 const Wine = props => {
-  const { name, year, description, country, region, pictureUrl } = props;
+  const {
+    name,
+    slug,
+    price,
+    year,
+    description,
+    country,
+    region,
+    pictureUrl
+  } = props;
   return (
     <div className="Wine">
       <div className="image-wrapper">
@@ -12,14 +21,16 @@ const Wine = props => {
       </div>
       <div className="content-wrapper">
         <h2>
-          {name} ({year})
+          {name} ({year}) - ${price}
         </h2>
         <p>{description}</p>
         <p>
           {country}, {region}
         </p>
         <p>
-          <button>Edit</button>
+          <form onSubmit={this.edit}>
+            <Link to={"/wine/${slug}/edit"}>Edit</Link>
+          </form>
           <button>Delete</button>
         </p>
       </div>

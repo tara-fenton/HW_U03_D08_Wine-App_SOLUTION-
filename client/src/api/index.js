@@ -9,4 +9,16 @@ const fetchWineBySlug = slug => {
     response.json()
   );
 };
-export { fetchAllWines, fetchWineBySlug };
+
+const createWine = wine => {
+  const body = wine;
+  return fetch(`http://localhost:4567/api/wine/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body)
+  }).then(response => response.json());
+};
+
+export { fetchAllWines, fetchWineBySlug, createWine };

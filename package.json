@@ -5,8 +5,12 @@
   "repository": "git@git.generalassemb.ly:wdi-nyc-ewok/HW_U03_D08_Wine-App.git",
   "author": "Eric Lewis <eric.andrew.lewis@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon"
+  },
   "dependencies": {
     "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "pg-monitor": "^0.9.2",

@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AllWinesList from "./AllWinesList";
 import SingleWinePage from "./SingleWinePage";
+import NewWinePage from "./NewWinePage";
 
 class App extends Component {
   render() {
@@ -32,6 +33,7 @@ class App extends Component {
                   );
                 }}
               />
+              <Route path="/wine/new" component={NewWinePage} />
             </div>
           </div>
         </div>
