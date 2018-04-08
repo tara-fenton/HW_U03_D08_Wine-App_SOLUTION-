@@ -8,8 +8,13 @@
   font-size: 2rem;
 }
 
+.Wine p {
+  margin-bottom: 0.5rem;
+}
+
 .Wine .image-wrapper {
   width: 25%;
+  padding:  0 1rem;;
 }
 
 .Wine .image-wrapper img {
@@ -18,4 +23,5 @@
 
 .Wine .content-wrapper {
   width: 75%;
+  padding:  0 1rem;;
 }
