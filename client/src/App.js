@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import AllWinesList from "./AllWinesList";
 import SingleWinePage from "./SingleWinePage";
+import AllWinesPage from "./AllWinesPage";
 import NewWinePage from "./NewWinePage";
 import EditWinePage from "./EditWinePage";
 import { fetchAllWines } from "./api";
@@ -47,6 +48,13 @@ class App extends Component {
             <div className="main">
               <Route
                 exact
+                path="/"
+                render={() => {
+                  return <AllWinesPage winesBySlug={winesBySlug} />;
+                }}
+              />
+              <Route
+                exact
                 path="/wine/:slug"
                 render={props => {
                   if (props.match.params.slug === "new") {
@@ -62,7 +70,16 @@ class App extends Component {
                   );
                 }}
               />
-              <Route path="/wine/new" component={NewWinePage} />
+              <Route
+                path="/wine/new"
+                render={() => {
+                  return (
+                    <NewWinePage
+                      updateStateWithAllWines={this.updateStateWithAllWines}
+                    />
+                  );
+                }}
+              />
               <Route
                 path="/wine/:slug/edit"
                 render={props => {

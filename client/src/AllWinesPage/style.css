@@ -1,0 +1,11 @@
+.AllWinesPage {
+  display: flex;
+}
+.AllWinesPage .wine {
+  width: 33%;
+  padding: 1rem;
+}
+
+.AllWinesPage .wine img {
+  width: 100%;
+}

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { fetchWineBySlug } from "../api";
 import Wine from "../Wine";
 
-class AllWinesList extends Component {
+class SingleWinePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -59,4 +59,4 @@ class AllWinesList extends Component {
   }
 }
 
-export default AllWinesList;
+export default SingleWinePage;

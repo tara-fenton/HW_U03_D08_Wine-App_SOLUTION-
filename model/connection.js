@@ -10,7 +10,7 @@ const initOptions = {
 };
 
 // attach to all events at once;
-monitor.attach(initOptions);
+monitor.attach(initOptions, ["query"]);
 
 // Import pg-promise and initialize the library with an empty object.
 const pgp = require("pg-promise")(initOptions);
